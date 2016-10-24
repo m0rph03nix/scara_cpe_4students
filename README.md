@@ -1,5 +1,3 @@
 # scara_cpe
 
-test
-
-#test
+- This package is a starter kit for the scara_cpe robot practical work.
