@@ -1,0 +1,28 @@
+<!-- Start scara joint controller -->
+<launch>
+    <rosparam file="$(find scara_cpe)/config/scara.yaml" command="load"/>
+    <node name="controller_spawner" pkg="dynamixel_controllers" type="controller_spawner.py"
+	  args="--manager=dxl_manager
+                --port scara_port 		
+                shoulder_1_controller
+		        shoulder_2_controller
+			"
+
+          output="screen"/>
+          
+  <!-- Start scara joints trajectory controller -->
+    <rosparam file="$(find scara_cpe)/config/scara_trajectory_controller.yaml" command="load"/>
+    <node name="controller_spawner_meta" pkg="dynamixel_controllers" type="controller_spawner.py"
+          args="--manager=dxl_manager
+                --type=meta
+                scara_cpe_controller
+                shoulder_1_controller
+		        shoulder_2_controller            
+                "
+                
+          output="screen"/>
+
+
+
+
+</launch>

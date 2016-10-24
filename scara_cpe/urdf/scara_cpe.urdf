@@ -1,0 +1,59 @@
+<robot name="scara_cpe" >
+		 
+  <link name="base_link">
+    <visual>
+	<origin xyz="0 0.034 0" rpy="-1.57079632679 0 -1.57079632679" />
+      <geometry>
+        <mesh filename="package://scara_cpe/urdf/scara_cpe-base_link.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="link1" >
+    <visual>
+	<origin xyz="0 -0.012 0" rpy="-1.57079632679 0 -1.57079632679" />
+      <geometry>
+        <mesh filename="package://scara_cpe/urdf/scara_cpe-link_1.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="link2" >
+    <visual>
+	<origin xyz="0.0133 -0.092 0" rpy="-1.57079632679 0 -1.42579632679" /> <!-- pi/2 - 0.145 -->
+      <geometry>
+        <mesh filename="package://scara_cpe/urdf/scara_cpe-link_2.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+
+  <link name="end_link" >
+  </link>
+
+
+  <joint name="shoulder_1_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="link1"/>
+    <origin xyz="0 0.048 0" rpy="0 0 0" />
+	<limit effort="30" velocity="1.0" lower="-1.57079632679" upper="1.57079632679" />
+	<axis xyz="0 0 1" />
+  </joint>
+
+  <joint name="shoulder_2_joint" type="revolute">
+    <parent link="link1"/>
+    <child link="link2"/>
+    <origin xyz="0 0.08 0" rpy="0 0 0" /> 
+	<limit effort="30" velocity="1.0" lower="-2.8" upper="2.8" />
+	<axis xyz="0 0 -1" />
+  </joint>
+
+
+  <joint name="end_joint" type="fixed">
+    <parent link="link2"/>
+    <child link="end_link"/>
+    <origin xyz="0 0.047 -0.025" rpy="0 0 0" />
+  </joint>
+
+
+</robot>
