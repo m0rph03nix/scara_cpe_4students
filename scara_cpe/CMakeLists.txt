@@ -135,7 +135,7 @@ catkin_package(
 # add_dependencies(scara_cpe ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
-add_executable(state_publisher src/move_student.cpp)
+#add_executable(move_test src/move_student.cpp)
 add_executable(emagnet src/emagnet_student.cpp)
 
 ## Add cmake target dependencies of the executable
