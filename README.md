@@ -5,8 +5,13 @@
 + Packages dependencies:
   - dynamixel_motor
   - serial (from source only)
-
-+ If you have the following error...
+  
++ Check robot motor connection :
+  ```{r, engine='bash', count_lines} 
+  rosrun dynamixel_driver info_dump.py -p /dev/ttyACM0 -b 200000 1 2
+  ```
+  
+  If you have the following error...
   ```{r, engine='bash', count_lines} 
   Failed to set custom baud rate: 200000
   ```
