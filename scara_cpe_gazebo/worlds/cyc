@@ -1,0 +1,389 @@
+<sdf version='1.4'>
+  <world name='default'>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+            </friction>
+            <bounce/>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+    </model>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>0.276831 -0.241174 0.384285 0 0.619643 1.82819</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+    <physics type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+      <gravity>0 0 -9.8</gravity>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <model name='scara_cpe'>
+      <link name='base_link'>
+        <pose>0 0 0.05 0 -0 0</pose>
+        <inertial>
+          <pose>0 0.025 0 0 -0 0</pose>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.0001</ixx>
+            <ixy>1e-12</ixy>
+            <ixz>1e-12</ixz>
+            <iyy>0.0001</iyy>
+            <iyz>1e-12</iyz>
+            <izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name='base_link_visual'>
+          <pose>0 0.034 0 -1.5708 -5.55112e-17 -1.5708</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/raph/catkin_tp/src/scara_cpe_robot/scara_cpe/urdf/scara_cpe-base_link.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Black</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='fixed' type='revolute'>
+        <child>base_link</child>
+        <parent>world</parent>
+        <axis>
+          <limit>
+            <lower>0</lower>
+            <upper>0</upper>
+          </limit>
+          <dynamics>
+            <damping>0</damping>
+          </dynamics>
+          <xyz>0 0 1</xyz>
+        </axis>
+      </joint>
+      <link name='link1'>
+        <pose>0 0.048 0.05 0 -0 0</pose>
+        <inertial>
+          <pose>0 0.04 0 0 -0 0</pose>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>3e-05</ixx>
+            <ixy>1e-12</ixy>
+            <ixz>1e-12</ixz>
+            <iyy>3e-05</iyy>
+            <iyz>1e-12</iyz>
+            <izz>3e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='link1_collision'>
+          <pose>0 -0.012 0 -1.5708 -5.55112e-17 -1.5708</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.04 0.04</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='link1_visual'>
+          <pose>0 -0.012 0 -1.5708 -5.55112e-17 -1.5708</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/raph/catkin_tp/src/scara_cpe_robot/scara_cpe/urdf/scara_cpe-link_1.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Orange</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='shoulder_1_joint' type='revolute'>
+        <child>link1</child>
+        <parent>base_link</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-1.5708</lower>
+            <upper>1.5708</upper>
+            <effort>30</effort>
+            <velocity>1</velocity>
+          </limit>
+          <dynamics/>
+        </axis>
+      </joint>
+      <link name='link2'>
+        <pose>0 0.128 0.05 0 -0 0</pose>
+        <inertial>
+          <pose>0 0.02 0 0 -0 0</pose>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.0001</ixx>
+            <ixy>1e-12</ixy>
+            <ixz>1e-12</ixz>
+            <iyy>0.0001</iyy>
+            <iyz>1e-12</iyz>
+            <izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <collision name='link2_collision'>
+          <pose>0.0133 -0.092 0 -1.5708 -0 -1.4258</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.0235 0.04</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='link2_visual'>
+          <pose>0.0133 -0.092 0 -1.5708 -0 -1.4258</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/raph/catkin_tp/src/scara_cpe_robot/scara_cpe/urdf/scara_cpe-link_2.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Black</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='shoulder_2_joint' type='revolute'>
+        <child>link2</child>
+        <parent>link1</parent>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-2.8</lower>
+            <upper>2.8</upper>
+            <effort>30</effort>
+            <velocity>1</velocity>
+          </limit>
+          <dynamics/>
+        </axis>
+      </joint>
+      <static>0</static>
+      <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
+        <robotNamespace>/scara_cpe</robotNamespace>
+        <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      </plugin>
+      <pose>0 0 0 0 -0 0</pose>
+    </model>
+    <model name='unit_cylinder_1'>
+      <pose>0 1 0.5 0 -0 0</pose>
+      <link name='link'>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <cylinder>
+              <radius>0.0267175</radius>
+              <length>0.0831731</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <static>0</static>
+    </model>
+    <state world_name='default'>
+      <sim_time>581 773000000</sim_time>
+      <real_time>583 803177595</real_time>
+      <wall_time>1540894436 800224622</wall_time>
+      <model name='ground_plane'>
+        <pose>0 0 0 0 -0 0</pose>
+        <link name='link'>
+          <pose>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='scara_cpe'>
+        <pose>0 0 -1e-06 8e-06 -1e-06 1e-06</pose>
+        <link name='base_link'>
+          <pose>0 0 0.049999 8e-06 -1e-06 1e-06</pose>
+          <velocity>1.6e-05 0 -0 0 -0 0.001869</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='link1'>
+          <pose>-0 0.048 0.049997 2e-06 -1e-06 -3e-06</pose>
+          <velocity>-1.4e-05 -0 -0 0 -0 0.001749</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='link2'>
+          <pose>0 0.128 0.049996 -2.1e-05 -2e-05 -1</pose>
+          <velocity>-0.000135 -2e-06 -0 0 -0 0.001183</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='unit_cylinder_1'>
+        <pose>0.092549 0.125991 0.041577 0 -1.3e-05 -1e-06</pose>
+        <link name='link'>
+          <pose>0.092549 0.125991 0.041577 0 -1.3e-05 -1e-06</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+    </state>
+  </world>
+</sdf>
