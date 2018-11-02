@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<robot>
+
+
+  <!-- ros_control plugin -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/scara_cpe</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+  </gazebo>
+
+
+  <!--gazebo reference="camera_link">
+    <sensor:camera name="camera">
+      <imageFormat>R8G8B8</imageFormat>
+      <imageSize>640 480</imageSize>
+      <hfov>60</hfov>
+      <nearClip>0.05</nearClip>
+      <farClip>5</farClip>
+      <updateRate>20</updateRate>
+      <baseline>0.1</baseline>
+      <controller:gazebo_ros_openni_kinect name="kinect_camera_controller" plugin="libgazebo_ros_openni_kinect.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>20</updateRate>
+        <robotNamespace>/</robotNamespace> 
+        <imageTopicName>/camera/image_raw</imageTopicName>
+        <pointCloudTopicName>/camera/depth/points</pointCloudTopicName>
+        <cameraInfoTopicName>/camera/camera_info</cameraInfoTopicName>
+        <frameName>camera_depth_optical_frame</frameName>
+        <distortion_k1>0.0</distortion_k1>
+        <distortion_k2>0.0</distortion_k2>
+        <distortion_k3>0.0</distortion_k3>
+        <distortion_t1>0.0</distortion_t1>
+        <distortion_t2>0.0</distortion_t2>
+      </controller:gazebo_ros_openni_kinect>
+    </sensor:camera>
+  </gazebo-->
+
+  <!-- Link3 -->
+  <gazebo reference="base_link">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <!-- Link1 -->
+  <gazebo reference="link1">
+    <material>Gazebo/Orange</material>
+  </gazebo>
+
+  <!-- Link2 -->
+  <gazebo reference="link2">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <!-- End link 
+  <gazebo reference="end_link">
+
+    <plugin name="dipole_magnet" filename="libgazebo_dipole_magnet.so">
+      <bodyName>end_link</bodyName>
+      <dipole_moment>0 0 10.1</dipole_moment>
+      <shouldPublish>true</shouldPublish>
+      <topicNs>scara_cpe</topicNs>
+      <updateRate>100</updateRate>
+    </plugin>
+
+  </gazebo-->
+
+
+
+</robot>

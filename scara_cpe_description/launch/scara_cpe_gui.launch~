@@ -1,6 +1,6 @@
 
 <launch>
-	<param name="robot_description" command="$(find xacro)/xacro.py $(find scara_cpe)/urdf/scara_cpe.urdf" />
+	<param name="robot_description" command="$(find xacro)/xacro.py $(find scara_cpe_description)/urdf/scara_cpe.xacro" />
 	<param name="use_gui" value="true"/>
 
 	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node>
