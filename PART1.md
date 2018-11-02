@@ -36,7 +36,8 @@
 ### 1.4 Kinematics
 - Still in ```scara_cpe_kinematics/script``` , create the file ```ik_service_action_client.py```:
 	- Copy/paste your code from ``` gazebo_trajectory_action_client_test.py``` 
-	- Add in your code the invert kinematics algorithme you calculated in the preparation of the practical work of "Modélisation des robots". So from (X, Y) in inputs, calculate ![first equation](http://latex.codecogs.com/gif.download?%28%5CTheta_1%2C%20%5CTheta_2%29)
+	- Add in your code the invert kinematics algorithme you calculated in the preparation of the practical work of "Modélisation des robots". So from (X, Y) in inputs, calculate 
+![Theta1, Theta2](http://latex.codecogs.com/gif.download?%28%5CTheta_1%2C%20%5CTheta_2%29)
 	- Test first your code by sending sequentially the (X, Y) coordinates of the red disk and the yellow disk.
 	- Create a service which call in its callback the inverse kinematics function and the action of the trajectory controller :
 		- Name of the service : gotoxy
