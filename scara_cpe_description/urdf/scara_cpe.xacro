@@ -9,6 +9,7 @@
   <xacro:property name="Link2_LENGTH" value="0.047" />
   <xacro:property name="Base_HEIGHT" value="0.03" />
   <xacro:property name="Link2_HEIGHT" value="-0.025" />
+  <xacro:property name="PI" value="3.14159265359" />
   <xacro:property name="PI_half" value="1.57079632679" />
 
 
@@ -119,6 +120,7 @@
   <joint name="camera_fixed" type="fixed">
     <parent link="world"/>
     <child link="camera_link"/>
+    <origin xyz="0 -0.3 0.2" rpy="-${PI_half+0.3} 0 0" />
   </joint>
 
   <joint name="shoulder_1_joint" type="revolute">
