@@ -41,13 +41,3 @@ The examination will be a 4 hours individual practical work. It counts for 2/3 o
 ## PART 1 - Tools and techno introduction
 [Link to the PART1](https://github.com/m0rph03nix/scara_cpe_4students/wiki/PART-1---Tools-and-techno-introduction)
 
-[comment]: <>  (## PART 2 - Motion Planning with MoveIt!)
-
-[comment]: <>  (## PART 3 - Obstacle Avoidance with MoveIt!)
-
-[comment]: <>  (## PART 4 - Link with real Robot)
-
-
-
-[comment]: <>  (```mermaid graph LR A[Test_node1] -- /test_topic --> B[Test_node2] ```)
-
