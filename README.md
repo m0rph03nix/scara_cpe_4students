@@ -38,8 +38,8 @@ A report and the code (commented) must be deposited on CPE e-Campus before the e
 This practical work counts for 1/3 of the final grade
 The examination will be a 4 hours individual practical work. It counts for 2/3 of the final grade. Your evaluated skills will start from URDF design to collision avoidance with MoveIt!
 
-## PART 1 - Tools and DIY arm control
-[Link to the PART1](https://github.com/m0rph03nix/scara_cpe_4students/blob/master/PART1.md)
+## PART 1 - Tools and techno introduction
+[Link to the PART1](https://github.com/m0rph03nix/scara_cpe_4students/wiki/PART-1---Tools-and-techno-introduction)
 
 [comment]: <>  (## PART 2 - Motion Planning with MoveIt!)
 
