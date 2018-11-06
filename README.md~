@@ -13,7 +13,6 @@ The packages are described as follows :
 - scara_cpe_gazebo : 
   - Specific files for the gazebo simulation
 
-![scara_cpe_photo](https://github.com/m0rph03nix/scara_cpe_4students/blob/master/img/scara_cpe_photo.jpg)
 
 ### Material description
 The scara_cpe is a robot arm is a simplified version of a scara industrial robot. 
