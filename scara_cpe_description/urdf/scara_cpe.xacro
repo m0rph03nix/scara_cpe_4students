@@ -1,7 +1,7 @@
 <robot name="scara_cpe" xmlns:xacro="http://ros.org/wiki/xacro" >
 
   <!-- Import all Gazebo-customization elements, including Gazebo colors -->
-  <xacro:include filename="$(find scara_cpe)/urdf/scara_cpe.gazebo" />
+  <xacro:include filename="$(find scara_cpe_description)/urdf/scara_cpe.gazebo" />
 
 		 
   <xacro:property name="Base_LENGTH" value="0.06" />
@@ -33,7 +33,7 @@
     <visual>
       <origin xyz="0 0.034 0" rpy="-${PI_half} 0 -${PI_half}" />
       <geometry>
-        <mesh filename="package://scara_cpe/urdf/scara_cpe-base_link.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://scara_cpe_description/urdf/scara_cpe-base_link.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
 
@@ -53,7 +53,7 @@
     <visual>
       <origin xyz="0 -0.012 0" rpy="-${PI_half} 0 -${PI_half}" />
       <geometry>
-        <mesh filename="package://scara_cpe/urdf/scara_cpe-link_1.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://scara_cpe_description/urdf/scara_cpe-link_1.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
 
@@ -81,7 +81,7 @@
     <visual>
 	  <origin xyz="0.0133 -0.092 0" rpy="-${PI_half} 0 -1.42579632679" />  <!-- -1.42579632679  - pi/2 + 0.145 -->
       <geometry>
-        <mesh filename="package://scara_cpe/urdf/scara_cpe-link_2.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://scara_cpe_description/urdf/scara_cpe-link_2.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
 
