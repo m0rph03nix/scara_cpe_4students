@@ -2,7 +2,7 @@
 # scara_cpe
 
 ## Description
-Scara_cpe is a little robot arm designed by Raphael Leber. This robot had been designed for educationnal purposes. It is used in practical work in the engineering school CPE LYON, France.
+Scara_cpe is a little robot arm designed by Raphael Leber. This robot had been created for educationnal purposes. It is used in practical work in the engineering school CPE LYON, France.
 
 The packages are described as follows :
 - scara_cpe_description :
