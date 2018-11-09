@@ -12,6 +12,8 @@ The packages are described as follows :
   - Specific files for the "real" robot (e.g. dynamixel controllers)
 - scara_cpe_gazebo : 
   - Specific files for the gazebo simulation
+- scara_cpe_ik_moveit_plugin :
+  - IK-Fast generated (and customized) MoveIt! plugin for the scara_cpe robot
 
 ![scara_cpe_photo](https://github.com/m0rph03nix/scara_cpe_4students/blob/master/img/scara_cpe_photo.jpg)
 
