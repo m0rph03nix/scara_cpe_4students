@@ -1,0 +1,1 @@
+rosrun moveit_kinematics create_ikfast_moveit_plugin.py scara_cpe scara_cpe_group scara_cpe_ik_moveit_plugin /home/raph/tmp_catkin/src/scara_cpe_ik_moveit_plugin/src/scara_cpe_scara_cpe_group_ikfast_solver.cpp
