@@ -10,7 +10,7 @@
 
 void grip_callback(const std_msgs::Bool::ConstPtr& msg);
 std::string receive_data(void);
-std::string port="/dev/ttyUSB1";
+std::string port="/dev/ttyUSB0";
 
 serial::Serial *s;
 
@@ -56,15 +56,15 @@ int main(int argc, char **argv)
  while(ros::ok())
  {
 
-      s->read(&detect, 1);
-	  
-	  // 
-	  // To be completed
-	  // Publish on detect_metal_pub
-	  //
+    // Récupère l'état du capteur:
+    s->read(&detect, 1);
 
-      ros::spinOnce();
-      loop_rate.sleep();
+    // Envoie s'il y a détection ou non:
+    isDetected.data = detect == 1;
+    detect_metal_pub.publish(isDetected);
+
+    ros::spinOnce();
+    loop_rate.sleep();
  }
  
 
