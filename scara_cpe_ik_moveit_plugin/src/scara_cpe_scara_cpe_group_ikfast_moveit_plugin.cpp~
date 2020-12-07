@@ -542,6 +542,7 @@ int IKFastKinematicsPlugin::solve(KDL::Frame& pose_frame, const std::vector<doub
     case IKP_Rotation3D:
     case IKP_Lookat3D:
     case IKP_TranslationXY2D:
+    case IKP_Translation3D:
       ComputeIk(trans, NULL, vfree.size() > 0 ? &vfree[0] : NULL, solutions);
       return solutions.GetNumSolutions();
     case IKP_TranslationXYOrientation3D:
