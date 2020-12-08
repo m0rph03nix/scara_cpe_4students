@@ -3,7 +3,7 @@
   <!-- We use a custom world for the rrbot so that the camera angle is launched correctly -->
 
   <world name="default">
-    <plugin name="ros_link_attacher_plugin" filename="libgazebo_ros_link_attacher.so"/>
+    <!--<plugin name="ros_link_attacher_plugin" filename="libgazebo_ros_link_attacher.so"/>-->
 
     <include>
       <uri>model://ground_plane</uri>
