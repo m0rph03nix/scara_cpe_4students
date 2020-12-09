@@ -28,10 +28,10 @@ The robot is made of :
 
 
 ### Set up configuration
-- This project had been tested under ROS indigo
-- Git clone this project in the src of a catkin workspace (e.g. catkin_move/src) and source it in your bashrc
+- This project had been tested under ROS indigo / kinetic / melodic (use branch kinetic for kinetic and indigo)
+- Git clone this project in the src of a catkin workspace (e.g. catkin_move/src) and source it in your `.bashrc`
 - In order to use Gazebo properly (french install only), in your bashrc add  ``` export LC_NUMERIC=C ``` 
-- Add a symbolic link (or a copy) of the "kinect_ros" folder (from scara_cpe_gazebo/models) in ~/.gazebo/models/
+- [Add a symbolic link](https://github.com/m0rph03nix/scara_cpe_4students/wiki/Tips#add-symbolic-link-of-gazebo-models-as-requested-here) (or a copy) of the "kinect_ros" folder (from scara_cpe_gazebo/models) in ~/.gazebo/models/
 
 
 ## CPE Pratical work instructions (goal, steps and evaluation)
@@ -42,5 +42,4 @@ This practical work counts for 1/3 of the final grade
 The examination will be a 4 hours individual practical work. It counts for 2/3 of the final grade. Your evaluated skills will start from URDF design to collision avoidance with MoveIt!
 
 ## PART 1 - Tools and techno introduction
-[Link to the PART1](https://github.com/m0rph03nix/scara_cpe_4students/wiki/PART-1---Tools-and-techno-introduction)
-
+[Link to the PART1](https://github.com/m0rph03nix/scara_cpe_4students/wiki/new-PART-1---Tools-and-techno-introduction)
