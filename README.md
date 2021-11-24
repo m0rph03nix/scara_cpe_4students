@@ -28,9 +28,9 @@ The robot is made of :
 
 
 ### Set up configuration
-- This project had been tested under ROS indigo / kinetic / melodic (use branch kinetic for kinetic and indigo)
 - Git clone this project in the src of a catkin workspace (e.g. catkin_move/src) and source it in your `.bashrc`
-- In order to use Gazebo properly (french install only), in your bashrc add  ``` export LC_NUMERIC=C ``` 
+- This project had been tested under ROS indigo / kinetic / melodic (use branch kinetic for kinetic and indigo). Check [here](https://github.com/m0rph03nix/scara_cpe_4students/wiki/Tips) to install the proper packages
+- In order to use Gazebo properly (french install before melodic only), in your bashrc add  ``` export LC_NUMERIC=C ``` 
 - [Add a symbolic link](https://github.com/m0rph03nix/scara_cpe_4students/wiki/Tips#add-symbolic-link-of-gazebo-models-as-requested-here) (or a copy) of the "kinect_ros" folder (from scara_cpe_gazebo/models) in ~/.gazebo/models/
 
 

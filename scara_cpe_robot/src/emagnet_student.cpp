@@ -10,7 +10,7 @@
 
 void grip_callback(const std_msgs::Bool::ConstPtr& msg);
 std::string receive_data(void);
-std::string port="/dev/ttyUSB0";
+std::string port="/dev/ttyACM0";
 
 serial::Serial *s;
 
