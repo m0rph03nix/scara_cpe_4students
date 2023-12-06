@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- ros_control plugin -->
+  <xacro:macro name="scara_cpe_ros2_control" params="name">
+
+    <ros2_control name="GazeboSystem" type="system">
+
+      <hardware>
+        <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+      </hardware>
+
+      <joint name="shoulder_1_joint">
+      
+        <command_interface name="position">
+        </command_interface>     
+
+        <state_interface name="position">
+        </state_interface>
+
+
+      </joint>
+
+      <joint name="shoulder_2_joint">
+
+        <command_interface name="position">
+        </command_interface>    
+
+        <state_interface name="position">
+        </state_interface>
+
+
+      </joint>    
+
+    </ros2_control>
+
+  </xacro:macro>
+
+  <gazebo>
+    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+      <parameters>$(find scara_cpe_description)/config/scara_controller.yaml</parameters>
+    </plugin>
+  </gazebo>
+
+
+  <!-- Link3 -->
+  <gazebo reference="base_link">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <!-- Link1 -->
+  <gazebo reference="link1">
+    <material>Gazebo/Orange</material>
+  </gazebo>
+
+  <!-- Link2 -->
+  <gazebo reference="link2">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+
+</robot>

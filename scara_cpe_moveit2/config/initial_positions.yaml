@@ -1,0 +1,5 @@
+# Default initial positions for scara_cpe's ros2_control fake system
+
+initial_positions:
+  shoulder_1_joint: 0
+  shoulder_2_joint: 0

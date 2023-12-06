@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+
+
+
+  <xacro:macro name="scara_cpe_ros2_control" params="name">
+
+    <!-- TODO : ros2_control dynamixel -->
+
+  </xacro:macro>
+
+
+
+
+
+
+
+
+  <xacro:macro name="scara_cpe_ros2_emagnet_control" params="name">
+
+    <!-- TODO : ros2_control emagnet -->
+
+  </xacro:macro>
+
+
+
+
+
+
+</robot>

@@ -1,0 +1,24 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 1000  # Hz
+
+    scara_cpe_group_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+
+
+scara_cpe_group_controller:
+  ros__parameters:
+    joints:
+      - shoulder_1_joint
+      - shoulder_2_joint
+
+    command_interfaces:
+      - position
+
+    state_interfaces:
+      - position
+

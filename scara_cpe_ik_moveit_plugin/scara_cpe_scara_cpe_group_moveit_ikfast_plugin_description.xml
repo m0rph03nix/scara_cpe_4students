@@ -1,6 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<library path="lib/libscara_cpe_scara_cpe_group_moveit_ikfast_plugin">
-  <class base_class_type="kinematics::KinematicsBase" name="scara_cpe_scara_cpe_group/IKFastKinematicsPlugin" type="scara_cpe_scara_cpe_group::IKFastKinematicsPlugin">
-    <description>IKFast61 plugin for closed-form kinematics of scara_cpe scara_cpe_group</description>
-  </class>
-</library>
