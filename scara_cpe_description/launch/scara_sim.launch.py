@@ -63,6 +63,9 @@ def generate_launch_description():
     # Logic to determine gz_args
     headless = LaunchConfiguration('headless')
 
+    # GUI Config
+    gui_config_path = os.path.join(get_package_share_directory(pkg_name), 'config', 'gui.config')
+
     # If headless is True, we want '-r -s'. If False, '-r'.
     gz_args = LaunchConfiguration('gz_args', default='-r')
 
@@ -72,11 +75,15 @@ def generate_launch_description():
         default_value='-r',
         description='Arguments for gz_sim'
     )
-
+    
     gazebo = IncludeLaunchDescription(
             PythonLaunchDescriptionSource([os.path.join(
                 get_package_share_directory('ros_gz_sim'), 'launch'), '/gz_sim.launch.py']),
-            launch_arguments={'gz_args': [LaunchConfiguration('gz_args'), ' ', world]}.items()
+            launch_arguments={'gz_args': [
+                LaunchConfiguration('gz_args'), 
+                ' --gui-config ', gui_config_path,
+                ' ', world
+                ]}.items()
         )
 
 
