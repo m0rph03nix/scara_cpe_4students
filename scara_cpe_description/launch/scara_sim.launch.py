@@ -5,7 +5,7 @@ from launch import LaunchDescription
 from launch.actions import ExecuteProcess, DeclareLaunchArgument, IncludeLaunchDescription, RegisterEventHandler
 from launch.event_handlers import OnProcessExit
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 
 from launch_ros.actions import Node
 
@@ -56,16 +56,24 @@ def generate_launch_description():
 
     gazebo = IncludeLaunchDescription(
             PythonLaunchDescriptionSource([os.path.join(
-                get_package_share_directory('gazebo_ros'), 'launch'), '/gazebo.launch.py']),
-            launch_arguments={'world': world}.items()
+                get_package_share_directory('ros_gz_sim'), 'launch'), '/gz_sim.launch.py']),
+            launch_arguments={'gz_args': ['-r ', world]}.items()
         )
 
 
-    spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py',
+    spawn_entity = Node(package='ros_gz_sim', executable='create',
                     arguments=['-topic', 'robot_description',
-                                '-entity', 'scara_cpe'],
+                                '-name', 'scara_cpe'],
                     output='screen')
 
+    # Bridge
+    bridge = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        arguments=['/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock',
+                   ],
+        output='screen'
+    )
 
     load_joint_state_controller = ExecuteProcess(
         cmd=['ros2', 'control', 'load_controller', '--set-state', 'active', 'joint_state_broadcaster'],
@@ -99,7 +107,8 @@ def generate_launch_description():
         declare_world_cmd,   
         gazebo,
         node_robot_state_publisher,
-        spawn_entity
+        spawn_entity,
+        bridge
     ])
 
 

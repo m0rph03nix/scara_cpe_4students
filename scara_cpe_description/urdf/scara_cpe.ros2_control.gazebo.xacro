@@ -8,7 +8,7 @@
     <ros2_control name="GazeboSystem" type="system">
 
       <hardware>
-        <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        <plugin>gz_ros2_control/GazeboSimSystem</plugin>
       </hardware>
 
       <joint name="shoulder_1_joint">
@@ -38,7 +38,7 @@
   </xacro:macro>
 
   <gazebo>
-    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+    <plugin filename="libgz_ros2_control-system.so" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
       <parameters>$(find scara_cpe_description)/config/scara_controller.yaml</parameters>
     </plugin>
   </gazebo>
