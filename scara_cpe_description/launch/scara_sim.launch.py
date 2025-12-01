@@ -6,6 +6,7 @@ from launch.actions import ExecuteProcess, DeclareLaunchArgument, IncludeLaunchD
 from launch.event_handlers import OnProcessExit
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+from launch.conditions import IfCondition, UnlessCondition
 
 from launch_ros.actions import Node
 
@@ -51,13 +52,31 @@ def generate_launch_description():
         name='world',
         default_value=world_file,
         description='Full path to the world model file to load'
-    )   
+    )
 
+    declare_headless_cmd = DeclareLaunchArgument(
+        name='headless',
+        default_value='False',
+        description='Run Gazebo in headless mode (no GUI)'
+    )
+
+    # Logic to determine gz_args
+    headless = LaunchConfiguration('headless')
+
+    # If headless is True, we want '-r -s'. If False, '-r'.
+    gz_args = LaunchConfiguration('gz_args', default='-r')
+
+    # We will default it to '-r'. User can override with '-r -s'.
+    declare_gz_args_cmd = DeclareLaunchArgument(
+        'gz_args',
+        default_value='-r',
+        description='Arguments for gz_sim'
+    )
 
     gazebo = IncludeLaunchDescription(
             PythonLaunchDescriptionSource([os.path.join(
                 get_package_share_directory('ros_gz_sim'), 'launch'), '/gz_sim.launch.py']),
-            launch_arguments={'gz_args': ['-r ', world]}.items()
+            launch_arguments={'gz_args': [LaunchConfiguration('gz_args'), ' ', world]}.items()
         )
 
 
