@@ -75,13 +75,17 @@ def generate_launch_description():
         output='screen'
     )
 
-    load_joint_state_controller = ExecuteProcess(
-        cmd=['ros2', 'control', 'load_controller', '--set-state', 'active', 'joint_state_broadcaster'],
+    load_joint_state_controller = Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=['joint_state_broadcaster'],
         output='screen'
     )
 
-    load_joint_trajectory_controller = ExecuteProcess(
-        cmd=['ros2', 'control', 'load_controller', '--set-state', 'active', 'scara_cpe_group_controller'],
+    load_joint_trajectory_controller = Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=['scara_cpe_group_controller'],
         output='screen'
     )
 
