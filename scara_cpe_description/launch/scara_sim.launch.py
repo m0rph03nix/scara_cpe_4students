@@ -127,7 +127,9 @@ def generate_launch_description():
                 on_exit=[load_joint_trajectory_controller],
             )
         ),     
-        declare_world_cmd,   
+        declare_world_cmd,
+        declare_headless_cmd,
+        declare_gz_args_cmd,
         gazebo,
         node_robot_state_publisher,
         spawn_entity,
